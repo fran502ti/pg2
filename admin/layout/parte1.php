@@ -131,6 +131,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
           
           <li class="nav-item">
             <a href="#" class="nav-link active">
+            <i class="nav-icon fas"><i class="bi bi-gear-fill"></i></i></i>
+              <p>
+                Configuraciones
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL;?>/admin/configuraciones" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Configurar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+            <i class="nav-icon fas"><i class="bi bi-bar-chart-line-fill"></i></i></i>
+              <p>
+                Niveles
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL;?>/admin/niveles" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Niveles</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
             <i class="nav-icon fas"><i class="bi bi-bookmarks"></i></i>
               <p>
                 Roles
@@ -164,6 +200,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+
+
+          
 
 
           <li class="nav-item">
