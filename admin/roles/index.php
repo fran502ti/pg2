@@ -9,12 +9,11 @@ include('../../app/controllers/roles/listado_de_roles.php');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Main content --> 
      <br>
     <div class="content">
       <div class="container">
         <div class="row">
-          <h1>Listado de Roles</h1> <br>
+          <h1>Listado de Roles</h1>
         </div>
 
         <br>
@@ -82,9 +81,6 @@ include('../../app/controllers/roles/listado_de_roles.php');
                     <?php
                     }
                     ?>
-                    <tr>
-                        <td></td>
-                    </tr>
                 </tbody>
               </table>
               </div>

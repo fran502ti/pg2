@@ -8,7 +8,7 @@
 
       $datos_sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
       foreach ($datos_sesion_usuarios as $datos_sesion_usuario)
-       $nombre_sesion_usuario = $datos_sesion_usuario['nombres'];
+       $nombre_sesion_usuario = $datos_sesion_usuario['email'];
   } 
   else{
     echo "el usuario no paso por el login";
@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- Datatables -->
-  <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?=APP_URL;?>/public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
@@ -149,21 +149,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
-            <i class="nav-icon fas"><i class="bi bi-bar-chart-line-fill"></i></i></i>
+            <i class="nav-icon fas"><i class="bi bi-bar-chart-steps"></i></i></i></i>
               <p>
-                Niveles
+                Grados 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=APP_URL;?>/admin/niveles" class="nav-link ">
+                <a href="<?=APP_URL;?>/admin/grados" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de Niveles</p>
+                  <p>Listado de Grados</p>
                 </a>
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+            <i class="nav-icon fas"><i class="bi bi-clipboard-check-fill"></i></i></i></i>
+              <p>
+                Pensum 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL;?>/admin/pensum" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Pensum</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+            <i class="nav-icon fas"><i class="bi bi-journal-bookmark-fill"></i></i>
+              <p>
+                Cursos 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL;?>/admin/cursos" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Cursos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
 
           <li class="nav-item">
             <a href="#" class="nav-link active">

@@ -44,13 +44,6 @@ include('../../app/controllers/usuarios/datos_del_usuario.php');
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="">DPI</label>
-                                        <p><?=$dpi;?></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group">
                                         <label for="">Correo Electronico</label>
                                         <p><?=$email;?></p>
                                     </div>

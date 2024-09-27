@@ -1,8 +1,8 @@
 <?php
-$id_niveles = $_GET['id'];
+$id_pensum = $_GET['id'];
 include('../../app/config.php');
 include('../../admin/layout/parte1.php');
-include('../../app/controllers/niveles/datos_nivel.php');
+include('../../app/controllers/pensum/datos_pensum.php');
 ?>
 
 
@@ -13,38 +13,48 @@ include('../../app/controllers/niveles/datos_nivel.php');
     <div class="content">
       <div class="container">
         <div class="row">
-          <h1>Nivel: <?=$nivel;?></h1> <br>
+          <h1>Pensum: <?=$descripcion;?></h1> <br>
         </div>
 
         <br>
         <div class="row">
 
           <div class="col-md-6">
-            <div class="card card-outline card-info">
+            <div class="card card-outline card-primary">
             <div class="card-header">
-              <h3 class="card-title">Ingrese los datos</h3>
+              <h3 class="card-title">Datos Registrados</h3>
 
             </div>
 
-                  <div class="card-body">
-                    <form action="<?=APP_URL;?>/app/controllers/niveles/create.php" method="post">
+                  <div class="card-body">              
+
                             <div class="row">
                                         <div class="col-md-12">
                                                 <div class="form group">
-                                                    <label for="">Ciclo Escolar</label>
-                                                    <p><?=$gestion;?></p>
+                                                    <label for="">Pensum</label>
+                                                    <p><?=$descripcion;?></p>
                                                 </div>
                                         </div>
                             </div>
 
                             <div class="row">
-                                        <div class="col-md-12">
-                                                <div class="form group">
-                                                    <label for="">Nivel</label>
-                                                    <p><?=$nivel;?></p>
-                                                </div>
-                                        </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="">Cursos</label>
+                                        <ul>
+                                            <!-- Verificar si el array de cursos no está vacío -->
+                                            <?php if (!empty($cursos)): ?>
+                                                <?php foreach ($cursos as $curso): ?>
+                                                    <li><?= $curso; ?></li>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <li>No hay cursos asignados a este pensum.</li>
+                                            <?php endif; ?>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+
 
                             <div class="row">
                                         <div class="col-md-12">
@@ -69,17 +79,14 @@ include('../../app/controllers/niveles/datos_nivel.php');
                                         </div>
                             </div>
 
-
                             <br>
-                            <hr>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <a href="<?=APP_URL;?>/admin/niveles" class="btn btn-secondary">Volver</a>
+                                        <a href="<?=APP_URL;?>/admin/pensum" class="btn btn-secondary">Volver</a>
                                     </div>
                                 </div>
                             </div>
-                    </form>
                   </div>
           </div>
         </div>

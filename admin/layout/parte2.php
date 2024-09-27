@@ -2,21 +2,21 @@
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
+        <h5>Title</h5>
+        <p>Sidebar content</p>
     </div>
-  </aside>
-  <!-- /.control-sidebar -->
+</aside>
+<!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
+<!-- Main Footer -->
+<footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      V. 1.0
+        V. 1.0.
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; <?=$ano_actual;?> <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+    <strong>Copyright &copy; <?=$ano_actual;?> <a href="https://hilariweb.com">Hilari Web</a>.</strong> All rights reserved.
+</footer>
 </div>
 <!-- ./wrapper -->
 
@@ -40,6 +40,7 @@
 <script src="<?=APP_URL;?>/public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?=APP_URL;?>/public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?=APP_URL;?>/public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 
 <!-- AdminLTE App -->
 <script src="<?=APP_URL;?>/public/dist/js/adminlte.min.js"></script>

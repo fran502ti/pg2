@@ -95,9 +95,6 @@ include('../../../app/controllers/configuraciones/institucion/listado_de_institu
                     <?php
                     }
                     ?>
-                    <tr>
-                        <td></td>
-                    </tr>
                 </tbody>
               </table>
               </div>

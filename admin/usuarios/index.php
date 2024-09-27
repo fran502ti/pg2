@@ -9,12 +9,11 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Main content --> 
      <br>
     <div class="content">
       <div class="container">
         <div class="row">
-          <h1>Listado de Usuarios</h1> <br>
+          <h1>Listado de Usuarios</h1>
         </div>
 
         <br>
@@ -36,7 +35,6 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
                     <th><center>No.</center></th>
                     <th><center>Nombres del Usuario</center></th>
                     <th><center>Rol</center></th>
-                    <th><center>DPI</center></th>
                     <th><center>Correo</center></th>
                     <th><center>Telefono</center></th>
                     <th><center>Estado</center></th>
@@ -53,7 +51,6 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
                             <td style="text-align: center"><?=$contador_usuarios;?></td>
                             <td><?=$usuario['nombres'];?></td>
                             <td><?=$usuario['nombre_rol'];?></td>
-                            <td><?=$usuario['dpi'];?></td>
                             <td><?=$usuario['email'];?></td>
                             <td><?=$usuario['telefono'];?></td>
                             <td><?=$usuario['estado'];?></td>
@@ -92,16 +89,11 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
                     <?php
                     }
                     ?>
-                    <tr>
-                        <td></td>
-                    </tr>
                 </tbody>
               </table>
               </div>
             </div>
           </div>
-
-        
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -111,8 +103,8 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
   <!-- /.content-wrapper -->
 
 <?php 
-  include('../../admin/layout/parte2.php');
-  include('../../layout/mensajes.php');
+  include ('../../admin/layout/parte2.php');
+  include ('../../layout/mensajes.php');
 ?>
 
 

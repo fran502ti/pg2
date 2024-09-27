@@ -7,7 +7,6 @@
 
 foreach ($usuarios as $usuario){
     $nombres = $usuario['nombres'];
-    $dpi = $usuario['dpi'];
     $nombre_rol = $usuario['nombre_rol'];
     $email = $usuario['email'];
     $telefono = $usuario['telefono'];

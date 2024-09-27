@@ -1,16 +1,16 @@
 <?php
+
 include('../../../app/config.php');
 
+$curso = $_POST['curso'];
+$seccion = $_POST['seccion'];
 
-$gestion_id = $_POST['gestion_id'];
-$nivel = $_POST['nivel'];
+$sentencia = $pdo->prepare('INSERT INTO grados
+(curso,seccion, fyh_creacion, estado)
+VALUES (:curso,:seccion,:fyh_creacion,:estado)');
 
-$sentencia = $pdo->prepare('INSERT INTO niveles
-(gestion_id,nivel, fyh_creacion, estado)
-VALUES ( :gestion_id,:nivel,:fyh_creacion,:estado)');
-
-$sentencia->bindParam(':gestion_id',$gestion_id);
-$sentencia->bindParam(':nivel',$nivel);
+$sentencia->bindParam(':curso',$curso);
+$sentencia->bindParam(':seccion',$seccion);
 $sentencia->bindParam('fyh_creacion',$fechaHora);
 $sentencia->bindParam('estado',$estado_de_registro);
 
@@ -19,12 +19,13 @@ echo 'success';
             session_start();
             $_SESSION['mensaje']="Datos registrados en BD correctamente";
             $_SESSION['icono']="success";
-            header ('Location: '.APP_URL."/admin/niveles");
+            header ('Location: '.APP_URL."/admin/grados");
+//header('Location:' .$URL.'/');
 }else{
 echo 'error al registrar a la base de datos';
             session_start();
             $_SESSION['mensaje']="Error al registrar datos en la BD";
             $_SESSION['icono']="error";
-            header ('Location: '.APP_URL."/admin/roles/create.php");
+            ?><script>window.history.back();</script><?php
 }
 

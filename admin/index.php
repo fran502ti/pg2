@@ -3,7 +3,8 @@ include('../app/config.php');
 include('../admin/layout/parte1.php');
 include('../app/controllers/roles/listado_de_roles.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
-include('../app/controllers/niveles/listado_de_niveles.php');
+include('../app/controllers/grados/listado_de_grados.php');
+include('../app/controllers/cursos/listado_de_cursos.php');
 ?>
 
 
@@ -61,27 +62,49 @@ include('../app/controllers/niveles/listado_de_niveles.php');
                     </div>
             </div>
 
+
+
             <div class="col-lg-3 col-6">
-                <div class="small-box bg-success">
+                <div class="small-box bg-warning">
                     <div class="inner">
                       <?php
-                      $contador_niveles = 0;
-                      foreach ($niveles as $nivele){
-                        $contador_niveles = $contador_niveles + 1;
+                      $contador_grados = 0;
+                      foreach ($grados as $grado){
+                        $contador_grados = $contador_grados + 1;
                       }
                       ?>
-                    <h3><?=$contador_niveles;?></h3>
-                    <p>Niveles Registrados</p>
+                    <h3><?=$contador_grados;?></h3>
+                    <p>Grados Registrados</p>
                     </div>
                     <div class="icon"> 
-                      <i class="fas"><i class="bi bi-bar-chart-line-fill"></i></i>
+                      <i class="fas"><i class="bi bi-bar-chart-steps"></i></i>
                     </div>
-                    <a href="<?=APP_URL;?>/admin/niveles" class="small-box-footer">
+                    <a href="<?=APP_URL;?>/admin/grados" class="small-box-footer">
                     Más información <i class="fas fa-arrow-circle-right"></i>
                     </a>
                     </div>
             </div>
 
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                      <?php
+                      $contador_cursos = 0;
+                      foreach ($cursos as $curso){
+                        $contador_cursos = $contador_cursos + 1;
+                      }
+                      ?>
+                    <h3><?=$contador_cursos;?></h3>
+                    <p>Cursos Registrados</p>
+                    </div>
+                    <div class="icon"> 
+                      <i class="fas"><i class="bi bi-journal-bookmark-fill"></i></i>
+                    </div>
+                    <a href="<?=APP_URL;?>/admin/cursos" class="small-box-footer">
+                    Más información <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                    </div>
+            </div>
 
         </div>
         <!-- /.row -->

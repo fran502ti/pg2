@@ -54,13 +54,6 @@ include('../../app/controllers/roles/listado_de_roles.php');
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="">DPI</label>
-                                        <input type="text" name="dpi" class="form-control" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group">
                                         <label for="">Correo Electronico</label>
                                         <input type="email" name="email" class="form-control" required>
                                     </div>
