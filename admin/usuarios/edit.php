@@ -14,7 +14,7 @@ include('../../app/controllers/roles/listado_de_roles.php');
     <div class="content">
       <div class="container">
         <div class="row">
-          <h1>Editar datos del Usuario: <?=$nombres;?></h1> <br>
+          <h1>Editar datos del Usuario: <?=$email;?></h1> <br>
         </div>
 
         <br>
@@ -30,7 +30,7 @@ include('../../app/controllers/roles/listado_de_roles.php');
                   <div class="card-body">
                     <form action="<?=APP_URL;?>/app/controllers/usuarios/update.php" method="post">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Nombre del Rol</label>
                                         <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>
@@ -51,37 +51,24 @@ include('../../app/controllers/roles/listado_de_roles.php');
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="">Nombres del usuario</label>
-                                        <input type="text" name="nombres" value="<?=$nombres;?>" class="form-control" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Correo Electronico</label>
                                         <input type="email" name="email" value="<?=$email;?>" class="form-control" required>
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="">Telefono</label>
-                                        <input type="text" name="telefono" value="<?=$telefono;?>" class="form-control" required>
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Contraseña</label>
                                         <input type="password" name="password" class="form-control">
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Repetir Contraseña</label>
                                         <input type="password" name="password_repeat" class="form-control">

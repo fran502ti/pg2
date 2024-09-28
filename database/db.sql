@@ -58,6 +58,7 @@ VALUES ('1','Josefa','Tiriquiz Morales','1234123451234','25-10-1987','Maestra de
 CREATE TABLE docentes (
     id_docente       INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     persona_id       INT (11) NOT NULL,
+    antiguedad       VARCHAR (255) NOT NULL,
 
     fyh_creacion  DATETIME NOT NULL,
     fyh_actualizacion DATETIME NULL, 

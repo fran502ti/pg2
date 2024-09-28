@@ -13,7 +13,7 @@ include('../../app/controllers/usuarios/datos_del_usuario.php');
     <div class="content">
       <div class="container">
         <div class="row">
-          <h1>Usuario: <?=$nombres;?></h1> <br>
+          <h1>Usuario: <?=$email;?></h1> <br>
         </div>
 
         <br>
@@ -37,22 +37,8 @@ include('../../app/controllers/usuarios/datos_del_usuario.php');
 
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="">Nombres del usuario</label>
-                                        <p><?=$nombres;?></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group">
                                         <label for="">Correo Electronico</label>
                                         <p><?=$email;?></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="">Telefono</label>
-                                        <p><?=$telefono;?></p>
                                     </div>
                                 </div>
 
