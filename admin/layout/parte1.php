@@ -35,6 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Mensajes varios -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <!-- jQuery -->
+<script src="<?=APP_URL;?>/public/plugins/jquery/jquery.min.js"></script>
+
   <!-- Iconos de bootstrap -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 

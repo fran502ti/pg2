@@ -180,18 +180,20 @@ CREATE TABLE asignaciones (
 
 CREATE TABLE calificaciones (
     id_calificaciones         INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    docente_id                INT(11) NOT NULL,
     estudiante_id             INT(11) NOT NULL,
-    pensum_id                 INT(11) NOT NULL,
+    materia_id                INT(11) NOT NULL,
 
-    nota1                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
-    nota2                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
-    nota3                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
-    nota4                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
+    nota1                      VARCHAR(5) NOT NULL, 
+    nota2                      VARCHAR(5) NOT NULL,  
+    nota3                      VARCHAR(5) NOT NULL,   
+    nota4                      VARCHAR(5) NOT NULL,   
 
-    fyh_creacion              DATETIME NOT NULL,       -- Fecha y hora de creación del registro
-    fyh_actualizacion         DATETIME NULL,         -- Fecha y hora de actualización
-    estado                    VARCHAR(11) NOT NULL,    -- Estado del registro, si está activo o inactivo
+    fyh_creacion              DATETIME NOT NULL,     
+    fyh_actualizacion         DATETIME NULL,       
+    estado                    VARCHAR(11) NOT NULL,  
 
     FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id_estudiante) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (pensum_id) REFERENCES pensum(id_pensum) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (materia_id) REFERENCES materias(id_materia) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (docente_id) REFERENCES docentes(id_docente) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
