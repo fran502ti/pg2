@@ -1,0 +1,9 @@
+<?php
+
+$sql_asignaciones = "SELECT * FROM asignaciones as asi 
+INNER JOIN docentes as doc ON doc.id_docente = asi.docente_id 
+INNER JOIN grados as gra ON gra.id_grado = asi.grado_id 
+INNER JOIN pensum as pens ON pens.id_pensum = asi.pensum_id where asi.estado = '1' ";
+$query_asignaciones = $pdo->prepare($sql_asignaciones);
+$query_asignaciones->execute();
+$asignaciones = $query_asignaciones->fetchAll(PDO::FETCH_ASSOC);

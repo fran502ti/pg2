@@ -256,6 +256,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL;?>/admin/docentes/asignacion.php" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Asignacion de Grados</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item">

@@ -214,6 +214,21 @@ INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
 VALUES ('Educacion Fisica', '2024-09-19 20:50:00', '1');
 
 
+CREATE TABLE asignaciones (
+    id_asignacion   INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    docente_id      INT(255) NOT NULL,
+    grado_id      INT(255) NOT NULL,
+
+
+    fyh_creacion DATETIME NOT NULL,
+    fyh_actualizacion DATETIME NULL,
+    estado VARCHAR(11),
+
+
+    FOREIGN KEY (docente_id) REFERENCES docentes (id_docente) ON DELETE NO ACTION ON UPDATE CASCADE, 
+    FOREIGN KEY (grado_id) REFERENCES grados (id_grado) ON DELETE NO ACTION ON UPDATE CASCADE 
+) ENGINE=InnoDB;
+
 CREATE TABLE pensum_cursos (
     id_pensum INT(11) NOT NULL,
     id_curso INT(11) NOT NULL,
