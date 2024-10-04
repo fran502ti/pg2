@@ -4,7 +4,7 @@ include('../admin/layout/parte1.php');
 include('../app/controllers/roles/listado_de_roles.php');
 include('../app/controllers/usuarios/listado_de_usuarios.php');
 include('../app/controllers/grados/listado_de_grados.php');
-include('../app/controllers/cursos/listado_de_cursos.php');
+include('../app/controllers/materias/listado_de_materias.php');
 include('../app/controllers/docentes/listado_de_docentes.php');
 include('../app/controllers/estudiantes/listado_de_estudiantes.php');
 ?>
@@ -88,21 +88,21 @@ include('../app/controllers/estudiantes/listado_de_estudiantes.php');
             </div>
 
             <div class="col-lg-3 col-6">
-                <div class="small-box bg-success">
+                <div class="small-box bg-danger">
                     <div class="inner">
                       <?php
-                      $contador_cursos = 0;
-                      foreach ($cursos as $curso){
-                        $contador_cursos = $contador_cursos + 1;
+                      $contador_materias = 0;
+                      foreach ($materias as $materia){
+                        $contador_materias = $contador_materias + 1;
                       }
                       ?>
-                    <h3><?=$contador_cursos;?></h3>
-                    <p>Cursos Registrados</p>
+                    <h3><?=$contador_materias;?></h3>
+                    <p>Materias Registradas</p>
                     </div>
                     <div class="icon"> 
-                      <i class="fas"><i class="bi bi-journal-bookmark-fill"></i></i>
+                      <i class="fas"><i class="bi bi-clipboard-check-fill"></i></i>
                     </div>
-                    <a href="<?=APP_URL;?>/admin/cursos" class="small-box-footer">
+                    <a href="<?=APP_URL;?>/admin/materias" class="small-box-footer">
                     Más información <i class="fas fa-arrow-circle-right"></i>
                     </a>
                     </div>

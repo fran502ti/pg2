@@ -167,41 +167,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <a href="#" class="nav-link active">
-            <i class="nav-icon fas"><i class="bi bi-clipboard-check-fill"></i></i></i></i>
+            <i class="nav-icon fas"><i class="bi bi-clipboard-check-fill"></i></i>
               <p>
-                Pensum 
+                Materias 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=APP_URL;?>/admin/pensum" class="nav-link ">
+                <a href="<?=APP_URL;?>/admin/materias" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de Pensum</p>
+                  <p>Listado de Materias</p>
                 </a>
               </li>
             </ul>
           </li>
-
-
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
-            <i class="nav-icon fas"><i class="bi bi-journal-bookmark-fill"></i></i>
-              <p>
-                Cursos 
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?=APP_URL;?>/admin/cursos" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de Cursos</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
 
 
           <li class="nav-item">
@@ -264,6 +244,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="<?=APP_URL;?>/admin/calificaciones" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-journal-medical"></i></i>
+              <p>
+                Calificaciones
+              </p>
+            </a>
           </li>
 
           <li class="nav-item">

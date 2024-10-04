@@ -145,105 +145,53 @@ CREATE TABLE grados (
 INSERT INTO grados (nivel_id,curso,seccion,fyh_creacion,estado)
 VALUES ('1','PRIMERO','A','2024-09-15 20:50:00','1');
 
-CREATE TABLE pensum (
-    id_pensum INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    descripcion VARCHAR(255) NOT NULL,  -- Descripción del pensum (ej. "Pensum PRIMERO")
-    
-    fyh_creacion DATETIME NOT NULL,
+CREATE TABLE materias (
+    id_materia      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_materia  VARCHAR (255) NOT NULL,
+
+    fyh_creacion  DATETIME NOT NULL,
     fyh_actualizacion DATETIME NULL,
-    estado VARCHAR(11)
-) ENGINE=InnoDB;
+    estado VARCHAR (11)
+)ENGINE=InnoDB;
 
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum PRIMERO', '2024-09-19 20:50:00', '1');
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum SEGUNDO', '2024-09-19 20:50:00', '1');
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum TERCERO', '2024-09-19 20:50:00', '1');
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum CUARTO', '2024-09-19 20:50:00,', '1');
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum QUINTO', '2024-09-19 20:50:00', '1');
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum SEXTO', '2024-09-19 20:50:00', '1');
-INSERT INTO pensum (descripcion, fyh_creacion, estado)
-VALUES ('Pensum PARVULOS', '2024-09-19 20:50:00', '1');
-
-CREATE TABLE cursos (
-    id_curso INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre_curso VARCHAR(255) NOT NULL,
-
-
-    fyh_creacion DATETIME NOT NULL,
-    fyh_actualizacion DATETIME NULL,
-    estado VARCHAR(11)
-) ENGINE=InnoDB;
-
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Comunicacion y Lenguaje L1', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Comunicacion y Lenguaje L2', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Comunicacion y Lenguaje L3', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Matematicas', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Medio Social y Natural', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Ciencias Naturales y Tecnologia', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Ciencias Sociales', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Expresion Artistica', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Educacion Fisica', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Formacion Ciudadana', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Productividad y Desarrollo', '2024-09-19 20:50:00', '1');
-
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Educacion para la Ciencia y Ciudadania', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Comunicacion y Lenguaje', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Aprendizaje Matematico', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Educacion Artistica', '2024-09-19 20:50:00', '1');
-INSERT INTO cursos (nombre_curso, fyh_creacion, estado)
-VALUES ('Educacion Fisica', '2024-09-19 20:50:00', '1');
+INSERT INTO materias (nombre_materia,fyh_creacion,estado)
+VALUES ('MATEMATICAS','2024-09-15 20:50:00','1');
 
 
 CREATE TABLE asignaciones (
-    id_asignacion   INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    docente_id      INT(255) NOT NULL,
-    grado_id      INT(255) NOT NULL,
+
+  id_asignacion   INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  docente_id      INT (11) NOT NULL,
+  nivel_id        INT (11) NOT NULL,
+  grado_id        INT (11) NOT NULL,
+  materia_id      INT (11) NOT NULL,
+
+  fyh_creacion   DATETIME NULL,
+  fyh_actualizacion DATETIME NULL,
+  estado        VARCHAR (11),
+
+   FOREIGN KEY (docente_id) REFERENCES docentes (id_docente) on delete no action on update cascade,
+   FOREIGN KEY (nivel_id) REFERENCES niveles (id_nivel) on delete no action on update cascade,
+   FOREIGN KEY (materia_id) REFERENCES materias (id_materia) on delete no action on update cascade,
+   FOREIGN KEY (grado_id) REFERENCES grados(id_grado) on delete no action on update cascade
+
+)ENGINE=InnoDB;
 
 
-    fyh_creacion DATETIME NOT NULL,
-    fyh_actualizacion DATETIME NULL,
-    estado VARCHAR(11),
+CREATE TABLE calificaciones (
+    id_calificaciones         INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    estudiante_id             INT(11) NOT NULL,
+    pensum_id                 INT(11) NOT NULL,
 
+    nota1                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
+    nota2                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
+    nota3                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
+    nota4                      DECIMAL(5,2) NOT NULL,   -- Para almacenar la nota del estudiante
 
-    FOREIGN KEY (docente_id) REFERENCES docentes (id_docente) ON DELETE NO ACTION ON UPDATE CASCADE, 
-    FOREIGN KEY (grado_id) REFERENCES grados (id_grado) ON DELETE NO ACTION ON UPDATE CASCADE 
+    fyh_creacion              DATETIME NOT NULL,       -- Fecha y hora de creación del registro
+    fyh_actualizacion         DATETIME NULL,         -- Fecha y hora de actualización
+    estado                    VARCHAR(11) NOT NULL,    -- Estado del registro, si está activo o inactivo
+
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id_estudiante) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (pensum_id) REFERENCES pensum(id_pensum) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
-
-CREATE TABLE pensum_cursos (
-    id_pensum INT(11) NOT NULL,
-    id_curso INT(11) NOT NULL,
-    PRIMARY KEY (id_pensum, id_curso),
-    FOREIGN KEY (id_pensum) REFERENCES pensum(id_pensum),
-    FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
-) ENGINE=InnoDB;
-
-CREATE TABLE grados_pensum (
-    id_grado INT(11) NOT NULL,
-    id_pensum INT(11) NOT NULL,
-    PRIMARY KEY (id_grado, id_pensum),
-    FOREIGN KEY (id_grado) REFERENCES grados(id_grado),
-    FOREIGN KEY (id_pensum) REFERENCES pensum(id_pensum)
-) ENGINE=InnoDB;
-
-INSERT INTO grados_pensum (id_grado, id_pensum)
-VALUES (1, 1);  -- Asignando el Pensum Primero al Grado con id 1
