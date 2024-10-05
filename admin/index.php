@@ -20,7 +20,68 @@ include('../app/controllers/estudiantes/listado_de_estudiantes.php');
           <h1><?=APP_NAME;?></h1>
         </div>
         <br>
+
+
+        <!-- VISTA PARA EL DOCENTE -->
+
+
+        <?php
+        if ($rol_sesion_usuario == "DOCENTE"){
+
+          foreach ($docentes as $docente){
+            if($email_sesion == $docente['email']){
+              $nombre_rol = $docente['nombre_rol'];
+              $email = $docente['email'];
+              $profesion = $docente['profesion'];
+            }
+          }
+
+          
+          ?>
+
         <div class="row">
+          <div class="col-md-6">
+
+          <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Datos del Docente</h3>
+                  <div class="card-tools">
+                  </div>
+              </div>
+
+              <div class="card-body">
+                <table class="table table-sm table-hover table-striped table-bordered">
+                  <tr>
+                    <td><b>Nombres y apellidos: </b></td>
+                    <td><?=$nombres_sesion_usuario." ".$apellidos_sesion_usuario;?></td>
+                  </tr> 
+                  <tr>
+                    <td><b>Correo: </b></td>
+                    <td><?=$email;?></td>
+                  </tr> 
+                  <tr>
+                    <td><b>Rol: </b></td>
+                    <td><?=$nombre_rol;?></td>
+                  </tr>
+                  <tr>
+                    <td><b>Profesion: </b></td>
+                    <td><?=$profesion;?></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+          <?php
+        }
+        ?>
+        
+        <!-- VISTA PARA EL ADMINISTRADOR Y DIRECTOR -->
+        <?php
+        if ($rol_sesion_usuario == "ADMINISTRADOR"){ ?>
+
+            <div class="row">
 
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-primary">
@@ -150,7 +211,13 @@ include('../app/controllers/estudiantes/listado_de_estudiantes.php');
                     </div>
             </div>
 
-        </div>
+            </div>
+        <?php
+
+        }
+        ?>
+        
+        <!-- VISTA PARA EL ADMINISTRADOR Y DIRECTOR -->
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>

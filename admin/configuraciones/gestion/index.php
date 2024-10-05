@@ -63,31 +63,30 @@ include('../../../app/controllers/configuraciones/gestion/listado_de_gestiones.p
                                <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="show.php?id=<?=$id_gestion;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
                                     <a href="edit.php?id=<?=$id_gestion;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                                    <!-- <form action="<?=APP_URL;?>/app/controllers/configuraciones/institucion/delete.php" onclick="preguntar<?=$id_gestion;?>(event)" method="post" id="miFormulario<?=$id_gestion;?>">
-                                      <input type="text" name="id_gestion" value="<?=$id_gestion;?>" hidden>                        
-                                      <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3-fill"></i></button>
-                                    </form>
-
-                                    <script>
-                                      function preguntar<?=$id_gestion;?>(event) {
-                                        event.preventDefault();
-                                        Swal.fire({
-                                            title: 'Eliminar registro',
-                                            text: '¿Desea eliminar este registro?',
-                                            icon: 'question',
-                                            showDenyButton: true,
-                                            confirmButtonText: 'Eliminar',
-                                            confirmButtonColor: '#a5161d',
-                                            denyButtonColor: '#270a0a',
-                                            denyButtonText: 'Cancelar',
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                var form = $('#miFormulario<?=$id_gestion;?>');
-                                                form.submit();
-                                            }
-                                        });
-                                      }
-                                    </script> -->
+                                    <form action="<?=APP_URL;?>/app/controllers/configuraciones/gestion/delete.php" onclick="preguntar<?=$id_gestion;?>(event)" method="post" id="miFormulario<?=$id_gestion;?>">
+                                                    <input type="text" name="id_gestion" value="<?=$id_gestion;?>" hidden>
+                                                    <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash"></i></button>
+                                                </form>
+                                                <script>
+                                                    function preguntar<?=$id_gestion;?>(event) {
+                                                        event.preventDefault();
+                                                        Swal.fire({
+                                                            title: 'Eliminar registro',
+                                                            text: '¿Desea eliminar este registro?',
+                                                            icon: 'question',
+                                                            showDenyButton: true,
+                                                            confirmButtonText: 'Eliminar',
+                                                            confirmButtonColor: '#a5161d',
+                                                            denyButtonColor: '#270a0a',
+                                                            denyButtonText: 'Cancelar',
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                var form = $('#miFormulario<?=$id_gestion;?>');
+                                                                form.submit();
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
                                 </div>
                             </td>
                         </tr>

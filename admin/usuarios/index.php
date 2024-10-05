@@ -51,12 +51,22 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
                             <td><?=$usuario['nombre_rol'];?></td>
                             <td><?=$usuario['email'];?></td>
                             <td><?=$usuario['fyh_creacion'];?></td>
-                            <td><?=$usuario['estado'];?></td>
+                            <td>
+                            <?php
+                                if ($usuario['estado']==1){?>
+                                    <button class="btn btn-success btn-sm" style="border-radius: 20px">ACTIVO</button>
+                                <?php
+                                } else {?>
+                                    <button class="btn btn-danger btn-sm" style="border-radius: 20px">INACTIVO</button>
+                                <?php
+                                }
+                                ?>
+                            </td>
                             <td style="text-align: center;">
                                <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="show.php?id=<?=$id_usuario;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
                                     <a href="edit.php?id=<?=$id_usuario;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                                    <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuario;?>(event)" method="post" id="miFormulario<?=$id_usuario;?>">
+                                   <form action="<?=APP_URL;?>/app/controllers/usuarios/delete.php" onclick="preguntar<?=$id_usuario;?>(event)" method="post" id="miFormulario<?=$id_usuario;?>">
                                       <input type="text" name="id_usuario" value="<?=$id_usuario;?>" hidden>                        
                                       <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3-fill"></i></button>
                                     </form>
@@ -80,7 +90,7 @@ include('../../app/controllers/usuarios/listado_de_usuarios.php');
                                             }
                                         });
                                       }
-                                    </script>
+                                    </script> 
                                 </div>
                             </td>
                         </tr>

@@ -54,16 +54,21 @@ include ('../../app/controllers/docentes/listado_de_docentes.php');
                                         <td style="text-align: center"><?=$docente['fecha_nacimiento'];?></td>
                                         <td><?=$docente['email'];?></td>
                                         <td>
-                                            <?php
-                                            if($docente['estado'] == "1") echo "ACTIVO";
-                                            else echo "INACTIVO";
-                                            ?>
+                                        <?php
+                                if ($docente['estado']==1){?>
+                                    <button class="btn btn-success btn-sm" style="border-radius: 20px">ACTIVO</button>
+                                <?php
+                                } else {?>
+                                    <button class="btn btn-danger btn-sm" style="border-radius: 20px">INACTIVO</button>
+                                <?php
+                                }
+                                ?>
                                         </td>
                                         <td style="text-align: center">
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="show.php?id=<?=$id_docente;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                                                 <a href="edit.php?id=<?=$id_docente;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
-                                                <form action="<?=APP_URL;?>/app/controllers/administrativos/delete.php" onclick="preguntar<?=$id_docente;?>(event)" method="post" id="miFormulario<?=$id_docente;?>">
+                                                <form action="<?=APP_URL;?>/app/controllers/docentes/delete.php" onclick="preguntar<?=$id_docente;?>(event)" method="post" id="miFormulario<?=$id_docente;?>">
                                                     <input type="text" name="id_docente" value="<?=$id_docente;?>" hidden>
                                                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash"></i></button>
                                                 </form>
