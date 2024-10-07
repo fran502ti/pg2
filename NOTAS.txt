@@ -6,8 +6,11 @@ INNER JOIN cursos as cu ON cu.id_curso = pc.id_curso
 INNER JOIN pensum as pens ON pens.id_pensum = asi.pensum_id where asi.estado = '1' ";
 
 
-ofetix@erom2.edu
+ofetix@erom2.ecu
 1234123456781
+
+josefti@erom2.edu
+1234123451234
 
 martini@eorm2.edu
 1234123451234

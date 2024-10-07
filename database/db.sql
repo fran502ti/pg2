@@ -193,7 +193,34 @@ CREATE TABLE calificaciones (
     fyh_actualizacion         DATETIME NULL,       
     estado                    VARCHAR(11) NOT NULL,  
 
-    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id_estudiante) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (materia_id) REFERENCES materias(id_materia) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (docente_id) REFERENCES docentes(id_docente) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id_estudiante) ON DELETE NO ACTION ON UPDATE CASCADE,
+    FOREIGN KEY (materia_id) REFERENCES materias(id_materia) ON DELETE NO ACTION ON UPDATE CASCADE,
+    FOREIGN KEY (docente_id) REFERENCES docentes(id_docente) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE permisos (
+    id_permiso INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_url VARCHAR(100) NOT NULL,
+    url        TEXT NOT NULL,
+
+    fyh_creacion  DATETIME NULL,
+    fyh_actualizacion DATETIME NULL,
+    estado        VARCHAR(11) NOT NULL,
+
+) ENGINE=InnoDB;
+
+CREATE TABLE roles_permisos (
+
+  id_rol_permiso  INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  rol_id          INT (11) NOT NULL,
+  permiso_id      INT (11) NOT NULL,
+
+  fyh_creacion   DATETIME NULL,
+  fyh_actualizacion DATETIME NULL,
+  estado        VARCHAR (11),
+
+   FOREIGN KEY (rol_id) REFERENCES roles (id_rol) on delete no action on update cascade,
+   FOREIGN KEY (permiso_id) REFERENCES permisos(id_permiso) on delete no action on update cascade
+
+)ENGINE=InnoDB;

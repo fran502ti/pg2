@@ -34,17 +34,14 @@ include('../app/controllers/estudiantes/listado_de_estudiantes.php');
               $email = $docente['email'];
               $profesion = $docente['profesion'];
             }
-          }
-
-          
+          }          
           ?>
-
         <div class="row">
           <div class="col-md-6">
 
           <div class="card card-outline card-primary">
               <div class="card-header">
-                <h3 class="card-title">Datos del Docente</h3>
+                <h3 class="card-title">Datos del Usuario</h3>
                   <div class="card-tools">
                   </div>
               </div>
@@ -71,14 +68,103 @@ include('../app/controllers/estudiantes/listado_de_estudiantes.php');
               </div>
             </div>
           </div>
-        </div>
-          
+        </div>          
           <?php
+        } else if ($rol_sesion_usuario == "DIRECTOR"){
+
+          foreach ($docentes as $docente){
+            if($email_sesion == $docente['email']){
+              $nombre_rol = $docente['nombre_rol'];
+              $email = $docente['email'];
+              $profesion = $docente['profesion'];
+            }
+          }          
+          ?>
+        <div class="row">
+          <div class="col-md-6">
+
+          <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Datos del Usuario</h3>
+                  <div class="card-tools">
+                  </div>
+              </div>
+
+              <div class="card-body">
+                <table class="table table-sm table-hover table-striped table-bordered">
+                  <tr>
+                    <td><b>Nombres y apellidos: </b></td>
+                    <td><?=$nombres_sesion_usuario." ".$apellidos_sesion_usuario;?></td>
+                  </tr> 
+                  <tr>
+                    <td><b>Correo: </b></td>
+                    <td><?=$email;?></td>
+                  </tr> 
+                  <tr>
+                    <td><b>Rol: </b></td>
+                    <td><?=$nombre_rol;?></td>
+                  </tr>
+                  <tr>
+                    <td><b>Profesion: </b></td>
+                    <td><?=$profesion;?></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>          
+          <?php
+        } else {
+          $sql_datos = "SELECT * FROM usuarios as usu 
+            INNER JOIN roles as rol ON rol.id_rol = usu.rol_id 
+            INNER JOIN personas as per ON per.usuario_id = usu.id_usuario 
+            WHERE usu.estado = '1' AND usu.email = '$email_sesion'";
+            $query_datos = $pdo->prepare($sql_datos);
+            $query_datos->execute();
+            $datos = $query_datos->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach($datos as $dato){
+              $nombre = $dato['nombres'];
+              $email = $dato['email'];
+              $nombre_rol = $dato['nombre_rol'];
+            }
+            ?>
+            <div class="row">
+          <div class="col-md-6">
+
+          <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Datos del usuario</h3>
+                  <div class="card-tools">
+                  </div>
+              </div>
+
+              <div class="card-body">
+                <table class="table table-sm table-hover table-striped table-bordered">
+                  <tr>
+                    <td><b>Nombres y apellidos: </b></td>
+                    <td><?=$nombres_sesion_usuario." ".$apellidos_sesion_usuario;?></td>
+                  </tr> 
+                  <tr>
+                    <td><b>Correo: </b></td>
+                    <td><?=$email;?></td>
+                  </tr> 
+                  <tr>
+                    <td><b>Rol: </b></td>
+                    <td><?=$nombre_rol;?></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div> 
+            <?php
         }
         ?>
         
-        <!-- VISTA PARA EL ADMINISTRADOR Y DIRECTOR -->
+        <!-- VISTA PARA EL ADMINISTRADOR -->
         <?php
+        
         if ($rol_sesion_usuario == "ADMINISTRADOR"){ ?>
 
             <div class="row">
