@@ -58,6 +58,15 @@ include('../../app/controllers/grados/datos_grados.php');
                             <div class="row">
                                         <div class="col-md-12">
                                                 <div class="form group">
+                                                    <label for="">Ciclo Escolar</label>
+                                                    <p><?=$gestion;?></p>
+                                                </div>
+                                        </div>
+                            </div>
+
+                            <div class="row">
+                                        <div class="col-md-12">
+                                                <div class="form group">
                                                     <label for="">Estado</label>
                                                     <p>
                                                         <?php

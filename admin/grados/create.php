@@ -1,6 +1,8 @@
 <?php
 include('../../app/config.php');
 include('../../admin/layout/parte1.php');
+
+include ('../../app/controllers/configuraciones/gestion/listado_de_gestiones.php');
 ?>
 
 
@@ -51,6 +53,28 @@ include('../../admin/layout/parte1.php');
                                                     <select name="seccion" id="" class="form-control">
                                                         <option value="A">A</option>
                                                         <option value="B">B</option>
+                                                    </select>
+                                                </div>
+                                        </div>
+                            </div>
+
+                            <div class="row">
+                                        <div class="col-md-12">
+                                                <div class="form group">
+                                                    <label for="">Ciclo Escolar</label>
+                                                    <select name="gestion_id" id="" class="form-control">
+                                                        <?php
+                                                        foreach ($gestiones as $gestione){
+                                                          if($gestione['estado']=="1"){
+                                                            ?>
+                                                            <option value="<?=$gestione['id_gestion'];?>"><?=$gestione['gestion'];?></option>
+                                                            <?php
+                                                          }
+                                                          ?>
+                                            
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                         </div>

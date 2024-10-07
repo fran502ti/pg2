@@ -65,7 +65,7 @@ include ('../../app/controllers/estudiantes/listado_de_estudiantes.php');
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <a href="show.php?id=<?=$id_estudiante;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                                                 <a href="edit.php?id=<?=$id_estudiante;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
-                                                <form action="<?=APP_URL;?>/app/controllers/administrativos/delete.php" onclick="preguntar<?=$id_estudiante;?>(event)" method="post" id="miFormulario<?=$id_estudiante;?>">
+                                                <form action="<?=APP_URL;?>/app/controllers/estudiantes/delete.php" onclick="preguntar<?=$id_estudiante;?>(event)" method="post" id="miFormulario<?=$id_estudiante;?>">
                                                     <input type="text" name="id_estudiante" value="<?=$id_estudiante;?>" hidden>
                                                     <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash"></i></button>
                                                 </form>

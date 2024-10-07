@@ -6,8 +6,9 @@ INNER JOIN cursos as cu ON cu.id_curso = pc.id_curso
 INNER JOIN pensum as pens ON pens.id_pensum = asi.pensum_id where asi.estado = '1' ";
 
 
-ofetix@erom2.ecu
-1234123456781
+johnofel21@gmail.com
+josefati@gmail.com
+1234123451234
 
 josefti@erom2.edu
 1234123451234
@@ -15,19 +16,15 @@ josefti@erom2.edu
 martini@eorm2.edu
 1234123451234
 
-
-<?php
-    $sql_grados = "SELECT * FROM grados as gra INNER JOIN gestiones AS ges WHERE gra.gestion_id AND ges.id_gestion = '1' AND gra.id_grado = '$id_grado'";
-    $query_grados = $pdo->prepare($sql_grados);
-    $query_grados->execute();
-    $grados = $query_grados->fetchAll(PDO::FETCH_ASSOC);
+wermo@gmail.com
+1234123451234
 
 
-    foreach ($grados as $grado){
-        $id_grado = $grado['id_grado'];
-        $curso = $grado['curso'];
-        $seccion = $grado['seccion'];
-        $gestion = $grado['gestion'];
-        $fyh_creacion = $grado['fyh_creacion'];
-        $estado = $grado['estado'];
-    }
+3083675291406
+Calificaciones - Subir Notas
+/admin/calificaciones/create.php
+
+8
+37
+38
+

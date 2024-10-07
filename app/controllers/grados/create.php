@@ -4,13 +4,15 @@ include('../../../app/config.php');
 
 $curso = $_POST['curso'];
 $seccion = $_POST['seccion'];
+$gestion_id = $_POST['gestion_id'];
 
 $sentencia = $pdo->prepare('INSERT INTO grados
-(curso,seccion, fyh_creacion, estado)
-VALUES (:curso,:seccion,:fyh_creacion,:estado)');
+(curso,seccion,gestion_id, fyh_creacion, estado)
+VALUES (:curso,:seccion,:gestion_id,:fyh_creacion,:estado)');
 
 $sentencia->bindParam(':curso',$curso);
 $sentencia->bindParam(':seccion',$seccion);
+$sentencia->bindParam(':gestion_id',$gestion_id);
 $sentencia->bindParam('fyh_creacion',$fechaHora);
 $sentencia->bindParam('estado',$estado_de_registro);
 

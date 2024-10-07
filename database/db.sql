@@ -136,10 +136,13 @@ CREATE TABLE grados (
     id_grado      INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     curso         VARCHAR (255) NOT NULL,
     seccion       VARCHAR (255) NOT NULL,
+    gestion_id    INT (11) NOT NULL,
 
     fyh_creacion  DATETIME NOT NULL,
     fyh_actualizacion DATETIME NULL,
     estado VARCHAR (11)
+
+    FOREIGN KEY (gestion_id) REFERENCES gestiones (id_gestion) on delete no action on update cascade,
 )ENGINE=InnoDB;
 
 INSERT INTO grados (nivel_id,curso,seccion,fyh_creacion,estado)

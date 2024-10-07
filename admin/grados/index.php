@@ -35,6 +35,7 @@ include('../../app/controllers/grados/listado_de_grados.php');
                     <th><center>No.</center></th>
                     <th><center>Grado</center></th>
                     <th><center>Seccion</center></th>
+                    <th><center>Ciclo escolar</center></th>
                     <th><center>Acciones</center></th>
                 </tr>
               </thead>
@@ -48,11 +49,12 @@ include('../../app/controllers/grados/listado_de_grados.php');
                             <td style="text-align: center;"><?=$contador_grados;?></td>
                             <td style="text-align: center;"><?=$grado['curso'];?></td>
                             <td style="text-align: center;"><?=$grado['seccion'];?></td>
+                            <td style="text-align: center;"><?=$grado['gestion'];?></td>
                             <td style="text-align: center;">
                                <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="show.php?id=<?=$id_grado;?>" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
                                     <a href="edit.php?id=<?=$id_grado;?>" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                                   <!--<form action="<?=APP_URL;?>/app/controllers/grados/delete.php" onclick="preguntar<?=$id_grado;?>(event)" method="post" id="miFormulario<?=$id_grado;?>">
+                                   <form action="<?=APP_URL;?>/app/controllers/grados/delete.php" onclick="preguntar<?=$id_grado;?>(event)" method="post" id="miFormulario<?=$id_grado;?>">
                                       <input type="text" name="id_grado" value="<?=$id_grado;?>" hidden>                        
                                       <button type="submit" class="btn btn-danger btn-sm" style="border-radius: 0px 5px 5px 0px"><i class="bi bi-trash3-fill"></i></button>
                                     </form>
@@ -76,7 +78,7 @@ include('../../app/controllers/grados/listado_de_grados.php');
                                             }
                                         });
                                       }
-                                    </script>-->
+                                    </script>
                                 </div>
                             </td>
                         </tr>

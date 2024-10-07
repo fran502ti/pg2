@@ -3,6 +3,7 @@ $id_grado = $_GET['id'];
 include('../../app/config.php');
 include('../../admin/layout/parte1.php');
 include('../../app/controllers/grados/datos_grados.php');
+include('../../app/controllers/configuraciones/gestion/listado_de_gestiones.php');
 ?>
 
 
@@ -54,6 +55,29 @@ include('../../app/controllers/grados/datos_grados.php');
                                                     <select name="seccion" id="" class="form-control">
                                                         <option value="A"<?=$seccion=='A' ? 'selected' : ''?>>A</option>
                                                         <option value="B"<?=$seccion=='B' ? 'selected' : ''?>>B</option>
+                                                    </select>
+                                                </div>
+                                        </div>
+                            </div>
+
+                            <div class="row">
+                                        <div class="col-md-12">
+                                                <div class="form group">
+                                                    <label for="">Ciclo Escolar</label>
+                                                    <select name="gestion_id" id="" class="form-control">
+                                                        <?php
+                                                        foreach ($gestiones as $gestione){
+                                                          if ($gestione['estado']=="1"){?>
+                                                          <option value="<?=$gestione['id_gestion'];?>" 
+                                                          <?php
+                                                          if($gestion_id == $gestione['id_gestion']) {?> selected="selected" <?php } ?>>
+                                                            <?=$gestione['gestion'];?>
+                                                          </option>                            
+                                                          <?php
+                                                          } ?>
+                                                          <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                         </div>
