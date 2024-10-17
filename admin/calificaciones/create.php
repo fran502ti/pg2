@@ -55,10 +55,7 @@ foreach ($estudiantes as $estudiante){
                                 <tbody>
                                 <?php
                                 $contador_estudiantes = 0;
-                                $nota1 = "";
-                                $nota2 = "";
-                                $nota3 = "";
-                                $nota4 = "";
+                                
                                 foreach ($estudiantes as $estudiante){
 
                                     if ($id_grado == $estudiante['grado_id']){
@@ -77,8 +74,12 @@ foreach ($estudiantes as $estudiante){
                                         <td style="text-align: center"><?=$estudiante['curso']." - ".$estudiante['seccion'];?></td>
 
                                         <?php
-
+                                        $nota1 = "";
+                                        $nota2 = "";
+                                        $nota3 = "";
+                                        $nota4 = "";
                                         foreach($calificaciones as $calificacione){
+                                            
                                             if(($calificacione['docente_id']==$id_docente_get) &&
                                             ($calificacione['estudiante_id']==$id_estudiante) &&
                                             ($calificacione['materia_id']==$id_materia_get))

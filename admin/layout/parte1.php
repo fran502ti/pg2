@@ -59,13 +59,7 @@
       } else {
         //echo "usuario no autorizado";
         header ('Location: '.APP_URL."/admin/no-autorizado.php");
-      }     
-      /*if ("/pruebas.php" == $rest){
-        echo "es igual";
-      } else{
-        echo "no es igual"; 
-      }*/
-
+      }
 
     }else{
     echo "el usuario no paso por el login";
@@ -374,6 +368,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <i class="nav-icon fas"><i class="bi bi-journal-medical"></i></i>
                         <p>
                           Calificaciones
+                        </p>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a href="<?=APP_URL;?>/admin/reportes" class="nav-link active">
+                        <i class="nav-icon fas"><i class="bi bi-flag-fill"></i></i>
+                        <p>
+                          Reportes del estudiante
                         </p>
                       </a>
                     </li>
