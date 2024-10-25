@@ -23,6 +23,10 @@ foreach ($notas as $nota){
     $id_calificaciones = $nota['id_calificaciones'];
 }
 
+// se calcula el promedio previo a actualizar o insertar los datos
+
+$promedio = ($nota1 + $nota2 + $nota3 + $nota4) / 4;
+
 if($notas){
     echo"existe registro";
 
@@ -30,7 +34,8 @@ $sentencia = $pdo->prepare('UPDATE calificaciones
          SET nota1=:nota1,
             nota2=:nota2,
             nota3=:nota3,
-            nota4=:nota4,  
+            nota4=:nota4,
+            promedio=:promedio,  
             fyh_actualizacion=:fyh_actualizacion
 WHERE id_calificaciones=:id_calificaciones');
 
@@ -38,6 +43,7 @@ $sentencia->bindParam(':nota1',$nota1);
 $sentencia->bindParam(':nota2',$nota2);
 $sentencia->bindParam(':nota3',$nota3);
 $sentencia->bindParam(':nota4',$nota4);
+$sentencia->bindParam(':promedio',$promedio);
 $sentencia->bindParam(':fyh_actualizacion',$fechaHora);
 $sentencia->bindParam('id_calificaciones',$id_calificaciones);
 $sentencia->execute();
@@ -46,8 +52,8 @@ $sentencia->execute();
     echo"no existe registro";
 
 $sentencia = $pdo->prepare('INSERT INTO calificaciones
-         (docente_id, estudiante_id, materia_id, nota1, nota2, nota3, nota4, fyh_creacion, estado)
-VALUES ( :docente_id,:estudiante_id, :materia_id,:nota1,:nota2,:nota3,:nota4, :fyh_creacion,:estado)');
+         (docente_id, estudiante_id, materia_id, nota1, nota2, nota3, nota4, promedio, fyh_creacion, estado)
+VALUES ( :docente_id,:estudiante_id, :materia_id,:nota1,:nota2,:nota3,:nota4, :promedio, :fyh_creacion,:estado)');
 
 $sentencia->bindParam(':docente_id',$id_docente);
 $sentencia->bindParam(':estudiante_id',$id_estudiante);
@@ -56,6 +62,7 @@ $sentencia->bindParam(':nota1',$nota1);
 $sentencia->bindParam(':nota2',$nota2);
 $sentencia->bindParam(':nota3',$nota3);
 $sentencia->bindParam(':nota4',$nota4);
+$sentencia->bindParam(':promedio',$promedio);
 $sentencia->bindParam(':fyh_creacion',$fechaHora);
 $sentencia->bindParam('estado',$estado_de_registro);
 $sentencia->execute();

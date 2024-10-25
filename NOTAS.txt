@@ -5,6 +5,8 @@ INNER JOIN pensum_cursos as pc ON pc.id_pensum = asi.pensum_id
 INNER JOIN cursos as cu ON cu.id_curso = pc.id_curso 
 INNER JOIN pensum as pens ON pens.id_pensum = asi.pensum_id where asi.estado = '1' ";
 
+https://www.youtube.com/watch?v=c3GoigQ5vRE&list=PLAFTVct4TDOa1HHObYNcGqRXsYTcCnfF4
+
 
 johnofel21@gmail.com
 josefati@gmail.com
@@ -28,3 +30,9 @@ Calificaciones - Subir Notas
 37
 38
 
+
+
+
+
+johnofel21@gmail.com	
+1234123451234

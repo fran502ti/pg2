@@ -50,6 +50,7 @@ foreach ($estudiantes as $estudiante){
                                     <th><center>2do Bimestre</center></th>
                                     <th><center>3er Bimestre</center></th>
                                     <th><center>4to Bimestre</center></th>
+                                    <th><center>Promedio</center></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -78,6 +79,7 @@ foreach ($estudiantes as $estudiante){
                                         $nota2 = "";
                                         $nota3 = "";
                                         $nota4 = "";
+                                        $promedio = "";
                                         foreach($calificaciones as $calificacione){
                                             
                                             if(($calificacione['docente_id']==$id_docente_get) &&
@@ -88,6 +90,7 @@ foreach ($estudiantes as $estudiante){
                                                 $nota2 = $calificacione['nota2'];
                                                 $nota3 = $calificacione['nota3'];
                                                 $nota4 = $calificacione['nota4'];
+                                                $promedio = $calificacione['promedio'];
                                             }
                                         }
                                         ?>
@@ -106,6 +109,9 @@ foreach ($estudiantes as $estudiante){
                                         <td>
                                             <input style="text-align: center;" value="<?=$nota4;?>" id="nota4_<?=$contador_estudiantes;?>" type="number" class="form-control">
                                         </td>
+                                        <td>
+                                            <input style="text-align: center;" value="<?=$promedio;?>" id="promedio_<?=$contador_estudiantes;?>" type="text" class="form-control" readonly>
+                                        </td>
                                     </tr>
                                     <?php
                                 } 
@@ -118,6 +124,26 @@ foreach ($estudiantes as $estudiante){
                             <hr>
                             <button class="btn btn-primary btn-lg" id="btn_guardar">Guardar Notas</button>
                             <script>
+                                // Script para calcular y mostar el promedio
+                                $(document).ready(function(){
+                                    $('input[type="number"]').on('input', function() {
+                                        var n = '<?=$contador_estudiantes;?>';
+                                        
+                                        for (var i = 1; i <= n; i++) {
+                                            var nota1 = parseFloat($('#nota1_'+i).val()) || 0;
+                                            var nota2 = parseFloat($('#nota2_'+i).val()) || 0;
+                                            var nota3 = parseFloat($('#nota3_'+i).val()) || 0;
+                                            var nota4 = parseFloat($('#nota4_'+i).val()) || 0;
+                                            
+                                            var promedio = (nota1 + nota2 + nota3 + nota4) / 4;
+                                            
+                                            $('#promedio_'+i).val(promedio.toFixed(2)); // Mostrar el promedio con dos decimales
+                                        }
+                                    });
+                                });
+
+                                // Script para ingresar y guardar el promedio
+
                                 $('#btn_guardar').click(function(){
                                     var n = '<?=$contador_estudiantes;?>';
                                     var i = 1;
@@ -159,6 +185,7 @@ foreach ($estudiantes as $estudiante){
                                     });
                                 });
                             </script>
+
                             <div id="respuesta" hidden></div>
                         </div>
                     </div>
@@ -229,4 +256,4 @@ include ('../../layout/mensajes.php');
             ],
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-</script>s
+</script>

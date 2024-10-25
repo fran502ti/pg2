@@ -65,7 +65,7 @@ include('../../app/controllers/roles/listado_de_roles.php');
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Repetir Contraseña</label>
-                                        <input type="password" name="password_repeat" class="form-control" required>
+                                        <input type="password" name="password_repet" class="form-control" required>
                                     </div>
                                 </div>
 
