@@ -190,7 +190,8 @@ CREATE TABLE calificaciones (
     nota1                      VARCHAR(5) NOT NULL, 
     nota2                      VARCHAR(5) NOT NULL,  
     nota3                      VARCHAR(5) NOT NULL,   
-    nota4                      VARCHAR(5) NOT NULL,   
+    nota4                      VARCHAR(5) NOT NULL,
+    promedio                   DECIMAL(5,2) NOT NULL,
 
     fyh_creacion              DATETIME NOT NULL,     
     fyh_actualizacion         DATETIME NULL,       
