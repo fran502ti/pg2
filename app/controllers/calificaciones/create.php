@@ -5,6 +5,8 @@ include ('../../../app/config.php');
 $id_docente = $_GET['id_docente'];
 $id_estudiante = $_GET['id_estudiante'];
 $id_materia = $_GET['id_materia'];
+
+//ISSET es utilizado para verificar la existencia de la nota, en caso de no existir "?" se asigna el valor null
 $nota1 = isset($_GET['nota1']) ? $_GET['nota1'] : null;
 $nota2 = isset($_GET['nota2']) ? $_GET['nota2'] : null;
 $nota3 = isset($_GET['nota3']) ? $_GET['nota3'] : null;
