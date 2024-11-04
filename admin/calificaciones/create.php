@@ -1,6 +1,6 @@
 <?php
 
-$id_grado = $_GET['id_grado'];
+$id_grado_get = $_GET['id_grado'];
 $id_docente_get = $_GET['id_docente'];
 $id_materia_get = $_GET['id_materia'];
 
@@ -12,7 +12,7 @@ include ('../../app/controllers/calificaciones/listado_de_calificaciones.php');
 
 foreach ($estudiantes as $estudiante){
 
-    if ($id_grado == $estudiante['grado_id']){
+    if ($id_grado_get == $estudiante['id_grado']){
 
        $curso = $estudiante['curso'];
        $seccion = $estudiante['seccion'];
@@ -59,7 +59,7 @@ foreach ($estudiantes as $estudiante){
                                 
                                 foreach ($estudiantes as $estudiante){
 
-                                    if ($id_grado == $estudiante['grado_id']){
+                                    if ($id_grado_get == $estudiante['id_grado']){
 
                                         $id_estudiante = $estudiante['id_estudiante'];
                                     $contador_estudiantes = $contador_estudiantes +1; ?>
