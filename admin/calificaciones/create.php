@@ -98,16 +98,16 @@ foreach ($estudiantes as $estudiante){
 
 
                                         <td>
-                                            <input style="text-align: center;" value="<?=$nota1;?>" id="nota1_<?=$contador_estudiantes;?>" type="number" class="form-control">
+                                            <input style="text-align: center;" value="<?=$nota1;?>" id="nota1_<?=$contador_estudiantes;?>" type="text" class="form-control">
                                         </td>
                                         <td>
-                                            <input style="text-align: center;" value="<?=$nota2;?>" id="nota2_<?=$contador_estudiantes;?>" type="number" class="form-control">
+                                            <input style="text-align: center;" value="<?=$nota2;?>" id="nota2_<?=$contador_estudiantes;?>" type="text" class="form-control">
                                         </td>
                                         <td>
-                                            <input style="text-align: center;" value="<?=$nota3;?>" id="nota3_<?=$contador_estudiantes;?>" type="number" class="form-control">
+                                            <input style="text-align: center;" value="<?=$nota3;?>" id="nota3_<?=$contador_estudiantes;?>" type="text" class="form-control">
                                         </td>
                                         <td>
-                                            <input style="text-align: center;" value="<?=$nota4;?>" id="nota4_<?=$contador_estudiantes;?>" type="number" class="form-control">
+                                            <input style="text-align: center;" value="<?=$nota4;?>" id="nota4_<?=$contador_estudiantes;?>" type="text" class="form-control">
                                         </td>
                                         <td>
                                             <input style="text-align: center;" value="<?=$promedio;?>" id="promedio_<?=$contador_estudiantes;?>" type="text" class="form-control" readonly>
@@ -126,16 +126,21 @@ foreach ($estudiantes as $estudiante){
                             <script>
                                 // Script para calcular y mostar el promedio
                                 $(document).ready(function(){
-                                    $('input[type="number"]').on('input', function() {
+                                    $('input[type="text"]').on('input', function() {
                                         var n = '<?=$contador_estudiantes;?>';
                                         
                                         for (var i = 1; i <= n; i++) {
-                                            var nota1 = parseFloat($('#nota1_'+i).val()) || 0;
-                                            var nota2 = parseFloat($('#nota2_'+i).val()) || 0;
-                                            var nota3 = parseFloat($('#nota3_'+i).val()) || 0;
-                                            var nota4 = parseFloat($('#nota4_'+i).val()) || 0;
+                                            // Obtener el valor de cada nota
+                                            var nota1 = $('#nota1_'+i).val();
+                                            var nota2 = $('#nota2_'+i).val();
+                                            var nota3 = $('#nota3_'+i).val();
+                                            var nota4 = $('#nota4_'+i).val();
                                             
-                                            var promedio = (nota1 + nota2 + nota3 + nota4) / 4;
+                                            // Filtrar valores no numéricos y convertir a flotantes
+                                            var notas = [nota1, nota2, nota3, nota4].filter(nota => !isNaN(parseFloat(nota)) && isFinite(nota)).map(parseFloat);
+                                            
+                                            // Calcular el promedio solo si hay valores numéricos
+                                            var promedio = notas.length > 0 ? notas.reduce((a, b) => a + b, 0) / notas.length : 0;
                                             
                                             $('#promedio_'+i).val(promedio.toFixed(2)); // Mostrar el promedio con dos decimales
                                         }

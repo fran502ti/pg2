@@ -12,9 +12,10 @@ $nota2 = isset($_GET['nota2']) ? $_GET['nota2'] : null;
 $nota3 = isset($_GET['nota3']) ? $_GET['nota3'] : null;
 $nota4 = isset($_GET['nota4']) ? $_GET['nota4'] : null;
 
-// Calcular promedio basado en notas no nulas
-$notas = array_filter([$nota1, $nota2, $nota3, $nota4], fn($nota) => $nota !== null);
+// Calcular promedio basado en notas no nulas y que sean numéricas
+$notas = array_filter([$nota1, $nota2, $nota3, $nota4], fn($nota) => is_numeric($nota));
 $promedio = count($notas) > 0 ? array_sum($notas) / count($notas) : 0;
+
 
 $sql = "SELECT * FROM calificaciones WHERE docente_id='$id_docente' and estudiante_id='$id_estudiante' and materia_id='$id_materia'";
 $query = $pdo->prepare($sql);
